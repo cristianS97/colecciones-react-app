@@ -1,4 +1,4 @@
-import './App.css';
+import './styles/styles.scss';
 // Rect router
 import { RouterProvider } from "react-router-dom";
 // Mis importaciones

@@ -1,0 +1,18 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+:root {
+    --color-fondo-sitio: #fefefe;
+    --color-fondo-menu: #11101b;
+}
+body {
+    background: var(--color-fondo-sitio);
+}
+.container {
+    width: 90%;
+    margin: 0 auto;
+}

@@ -9,6 +9,10 @@ export const Menu = () => {
         setLineClass(!lineClass);
     }
 
+    const handleLinkClick = () => {
+        setLineClass(false);
+    }
+
     return (
         <header>
             <div className="logo">My collections</div>
@@ -20,13 +24,13 @@ export const Menu = () => {
             <nav className={lineClass ? 'active' : ''}>
                 <ul>
                     <li>
-                        <NavLink className={({ isActive }) => isActive ? 'active' : ''} to="/">Index</NavLink>
+                        <NavLink onClick={handleLinkClick} className={({ isActive }) => isActive ? 'active' : ''} to="/">Index</NavLink>
                     </li>
                     <li>
-                        <NavLink className={({ isActive }) => isActive ? 'active' : ''} to="/collections">Collections</NavLink>
+                        <NavLink onClick={handleLinkClick} className={({ isActive }) => isActive ? 'active' : ''} to="/collections">Collections</NavLink>
                     </li>
                     <li>
-                        <NavLink className={({ isActive }) => isActive ? 'active' : ''} to="/login">Login</NavLink>
+                        <NavLink onClick={handleLinkClick} className={({ isActive }) => isActive ? 'active' : ''} to="/login">Login</NavLink>
                     </li>
                 </ul>
             </nav>
