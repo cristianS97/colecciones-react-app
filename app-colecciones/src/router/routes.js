@@ -5,6 +5,7 @@ import { Root } from "./Root";
 import { ErrorPage } from "./ErrorPage";
 import { Index } from "../components/index/Index";
 import { Colecciones } from "../components/coleccion/Colecciones";
+import { LoginPage } from "../components/login/LoginPage";
 
 export const router = createBrowserRouter([
     {
@@ -19,6 +20,10 @@ export const router = createBrowserRouter([
             {
                 path: 'collections',
                 element: <Colecciones />
+            },
+            {
+                path: 'login',
+                element: <LoginPage />
             }
         ]
     }
