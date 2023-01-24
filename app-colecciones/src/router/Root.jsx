@@ -8,7 +8,9 @@ export const Root = () => {
     return (
         <Fragment>
             <Menu />
-            <Outlet />
+            <div className="container">
+                <Outlet />
+            </div>
         </Fragment>
     )
 }
