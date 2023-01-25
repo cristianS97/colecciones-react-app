@@ -29,7 +29,7 @@ export const Index = () => {
     ];
     return (
         <Fragment>
-            <h2 style={{textAlign: 'center'}}>Últimos registros</h2>
+            <h2 style={{textAlign: 'center', marginTop: '10px'}}>Últimos registros</h2>
             <hr />
             <div className="collections">
                 {
