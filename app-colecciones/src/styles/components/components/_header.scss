@@ -15,6 +15,7 @@ header {
         display: none;
     }
     nav {
+        z-index: 2;
         ul {
             display: flex;
             li {
