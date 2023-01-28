@@ -32,9 +32,6 @@ export const Menu = () => {
                     <li>
                         <NavLink onClick={handleLinkClick} className={({ isActive }) => isActive ? 'active' : ''} to="/login">Login</NavLink>
                     </li>
-                    <li>
-                        <NavLink onClick={handleLinkClick} className={({ isActive }) => isActive ? 'active' : ''} to="/register">Register</NavLink>
-                    </li>
                 </ul>
             </nav>
         </header>
