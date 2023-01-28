@@ -6,6 +6,7 @@ import { ErrorPage } from "./ErrorPage";
 import { Index } from "../components/index/Index";
 import { Colecciones } from "../components/coleccion/Colecciones";
 import { LoginPage } from "../components/login/LoginPage";
+import { RegisterPage } from "../components/login/RegisterPage";
 
 export const router = createBrowserRouter([
     {
@@ -24,6 +25,10 @@ export const router = createBrowserRouter([
             {
                 path: 'login',
                 element: <LoginPage />
+            },
+            {
+                path: 'register',
+                element: <RegisterPage />
             }
         ]
     }
