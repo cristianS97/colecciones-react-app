@@ -1,15 +1,20 @@
 // React
 import React, { Fragment } from 'react';
 // React router
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 // Mis importaciones
 import { Menu } from './Menu';
 
 export const Root = () => {
+    const location = useLocation();
+    const classCon = location.pathname !== '/login' ? 'container' : '';
+
     return (
         <Fragment>
-            <Menu />
-            <div className="container">
+            {location.pathname !== '/login' &&
+                <Menu />
+            }
+            <div className={classCon}>
                 <Outlet />
             </div>
         </Fragment>
