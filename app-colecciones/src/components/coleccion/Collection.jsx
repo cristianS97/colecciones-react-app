@@ -1,5 +1,7 @@
 // React
 import React from 'react';
+// React router dom
+import { Link } from 'react-router-dom';
 
 export const Collection = ({collection}) => {
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
@@ -15,6 +17,7 @@ export const Collection = ({collection}) => {
                 <p>{collection.fecha.toLocaleDateString('es-ES', options)}</p>
                 <p>{text}</p>
                 <p>Personas: {collection.involucrados.join(', ')}</p>
+                <Link className='btn-see-more'><span></span>Ver mas<span><i className="fa-solid fa-right-long"></i></span></Link>
             </div>
         </div>
     )

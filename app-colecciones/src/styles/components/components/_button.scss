@@ -1,0 +1,73 @@
+.card{
+    .content {
+        position: absolute;
+        .btn-see-more {
+            position: relative;
+            top: 20%;
+            transform: translate(-50%, -50%);
+            padding: 10px 50px 10px 40px;
+            border: 2px solid #262626;
+            text-decoration: none;
+            color: #262626;
+            transition: .5s;
+            &:hover {
+                color: #fff;
+                span {
+                    &:nth-child(1) {
+                        &::before {
+                            transform: scale(1);
+                        }
+                    }
+                    &:nth-child(2) {
+                        &::before {
+                            transform: scale(1);
+                        }
+                    }
+                }
+            }
+            span {
+                &:nth-child(1) {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background: #262626;
+                        z-index: -1;
+                        transform: scale(0);
+                        transition: .5s;
+                    }
+                }
+                &:nth-child(2) {
+                    position: absolute;
+                    top: 50%;
+                    right: -16px;
+                    display: block;
+                    transform: translateY(-50%);
+                    padding: 2px 5px;
+                    border: 2px solid #262626;
+                    background: #fff;
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background: #4c8aff;
+                        z-index: -1;
+                        transition: .5s;
+                        transform: scale(0);
+                    }
+                }
+            }
+        }
+    }
+}
