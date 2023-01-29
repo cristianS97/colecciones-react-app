@@ -8,16 +8,19 @@ export const Collection = ({collection}) => {
     const text = collection.text.length < 20 ? collection.text : collection.text.substr(0, 20) + '...';
 
     return (
-        <div className='card'>
-            <div className="imgBox">
-                <img src={collection.cover} alt="" />
-            </div>
+        <div className="card">
             <div className="content">
                 <h2>{collection.title}</h2>
                 <p>{collection.fecha.toLocaleDateString('es-ES', options)}</p>
                 <p>{text}</p>
                 <p>Personas: {collection.involucrados.join(', ')}</p>
                 <Link className='btn-see-more'><span></span>Ver mas<span><i className="fa-solid fa-right-long"></i></span></Link>
+            </div>
+            <div className="details">
+                <div className="image">
+                    <img src={collection.cover} alt={collection.title} />
+                </div>
+                <h3>{collection.autor}<br /><span>Categoría</span></h3>
             </div>
         </div>
     )
