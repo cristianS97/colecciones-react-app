@@ -1,0 +1,70 @@
+footer {
+    width: 100%;
+    background: var(--fondo-footer);
+    .group1 {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 50px;
+        padding: 45px 0;
+        .box {
+            figure {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                img {
+                    width: 250px;
+                }
+            }
+            h2 {
+                color: var(--color-fondo-sitio);
+                margin-bottom: 25px;
+                font-size: 20px;
+            }
+            p {
+                color: var(--titulo-footer);
+                margin-bottom: 10px;
+            }
+            .redSocial {
+                a {
+                    display: inline-block;
+                    text-decoration: none;
+                    width: 45px;
+                    height: 45px;
+                    line-height: 45px;
+                    color: var(--color-fondo-sitio);
+                    margin-right: 10px;
+                    background: var(--fondo-redes-sociales);
+                    text-align: center;
+                    transform: all .3s ease;
+                    &:hover {
+                        color: aqua;
+                    }
+                }
+            }
+        }
+    }
+    .group2 {
+        background: var(--fondo-footer-derechos);
+        padding: 15px 10px;
+        text-align: center;
+        color: var(--color-fondo-sitio);
+        small {
+            font-size: 15px;
+        }
+    }
+}
+@media screen and (max-width: 768px) {
+    footer {
+        .group1 {
+            width: 90%;
+            grid-template-columns: repeat(1, 1fr);
+            grid-gap: 30px;
+            padding: 35px 0;
+        }
+    }
+}

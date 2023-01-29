@@ -4,6 +4,7 @@ import React, { Fragment } from 'react';
 import { Outlet, useLocation } from "react-router-dom";
 // Mis importaciones
 import { Menu } from './Menu';
+import { Footer } from '../components/Footer';
 
 export const Root = () => {
     const location = useLocation();
@@ -17,6 +18,9 @@ export const Root = () => {
             <div className={classCon}>
                 <Outlet />
             </div>
+            {location.pathname !== '/login' &&
+                <Footer />
+            }
         </Fragment>
     )
 }
