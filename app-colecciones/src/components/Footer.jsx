@@ -1,4 +1,7 @@
+// React
 import React from 'react';
+// react router
+import { Link } from "react-router-dom";
 
 export const Footer = () => {
     return (
@@ -6,9 +9,9 @@ export const Footer = () => {
             <div className="group1">
                 <div className="box">
                     <figure>
-                        <a href="#">
+                        <Link to='/'>
                             <img src="https://static-cse.canva.com/_next/static/assets/logo_w2000xh641_3b021976d60d0277e95febf805ad9fe8c7d6d54f86969ec03b83299084b7cb93.png" alt="Logo del sitio" />
-                        </a>
+                        </Link>
                     </figure>
                 </div>
                 <div className="box">
