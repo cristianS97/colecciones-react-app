@@ -6,7 +6,7 @@ footer {
         max-width: 1200px;
         margin: 0 auto;
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
         grid-gap: 50px;
         padding: 45px 0;
         .box {
@@ -29,20 +29,205 @@ footer {
                 color: var(--titulo-footer);
                 margin-bottom: 10px;
             }
-            .redSocial {
-                a {
-                    display: inline-block;
-                    text-decoration: none;
-                    width: 45px;
-                    height: 45px;
-                    line-height: 45px;
-                    color: var(--color-fondo-sitio);
-                    margin-right: 10px;
-                    background: var(--fondo-redes-sociales);
-                    text-align: center;
-                    transform: all .3s ease;
+        }
+    }
+    .group3 {
+        .box {
+            margin: 0 auto;
+            text-align: center;
+            h2 {
+                color: var(--color-fondo-sitio);
+                margin-bottom: 25px;
+                font-size: 20px;
+            }
+        }
+        .redSocial {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 15px 0;
+            ul {
+                position: relative;
+                display: flex;
+                width: 60%;
+                justify-content: space-around;
+                li {
+                    position: relative;
+                    list-style: none;
+                    width: 80px;
+                    height: 80px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    cursor: pointer;
+                    transition: .5s;
+                    a {
+                        position: relative;
+                        text-decoration: none;
+                        z-index: 10;
+                        font-size: 25px;
+                        transition: .5s;
+                        &.facebook {
+                            color: var(--facebook);
+                        }
+                        &.youtube {
+                            color: var(--youtube);
+                        }
+                        &.twitter {
+                            color: var(--twitter);
+                        }
+                        &.instagram {
+                            color: var(--instagram);
+                        }
+                        &.whatsapp {
+                            color: var(--whatsapp);
+                        }
+                        &.github {
+                            color: var(--github);
+                        }
+                    }
                     &:hover {
-                        color: aqua;
+                        transform: scale(0.75);
+                        a {
+                            font-size: 35px;
+                            &.facebook {
+                                filter: drop-shadow(0 0 20px var(--facebook));
+                            }
+                            &.youtube {
+                                filter: drop-shadow(0 0 20px var(--youtube));
+                            }
+                            &.twitter {
+                                filter: drop-shadow(0 0 20px var(--twitter));
+                            }
+                            &.instagram {
+                                filter: drop-shadow(0 0 20px var(--instagram));
+                            }
+                            &.whatsapp {
+                                filter: drop-shadow(0 0 20px var(--whatsapp));
+                            }
+                            &.github {
+                                filter: drop-shadow(0 0 20px var(--github));
+                            }
+                        }
+                        &.facebook {
+                            &::before {
+                                inset: 0;
+                            }
+                        }
+                        &.youtube {
+                            &::before {
+                                inset: 0;
+                            }
+                        }
+                        &.twitter {
+                            &::before {
+                                inset: 0;
+                            }
+                        }
+                        &.instagram {
+                            &::before {
+                                inset: 0;
+                            }
+                        }
+                        &.whatsapp {
+                            &::before {
+                                inset: 0;
+                            }
+                        }
+                        &.github {
+                            &::before {
+                                inset: 0;
+                            }
+                        }
+                    }
+                    &.facebook {
+                        &::before {
+                            content: '';
+                            position: absolute;
+                            inset: 30px;
+                            box-shadow: 0 0 0 10px var(--facebook),
+                            0 0 0 20px var(--fondo-footer),
+                            0 0 0 22px var(--facebook);
+                            transition: .5s;
+                            
+                        }
+                    }
+                    &.youtube {
+                        &::before {
+                            content: '';
+                            position: absolute;
+                            inset: 30px;
+                            box-shadow: 0 0 0 10px var(--youtube),
+                            0 0 0 20px var(--fondo-footer),
+                            0 0 0 22px var(--youtube);
+                            transition: .5s;
+                            
+                        }
+                    }
+                    &.twitter {
+                        &::before {
+                            content: '';
+                            position: absolute;
+                            inset: 30px;
+                            box-shadow: 0 0 0 10px var(--twitter),
+                            0 0 0 20px var(--fondo-footer),
+                            0 0 0 22px var(--twitter);
+                            transition: .5s;
+                            
+                        }
+                    }
+                    &.instagram {
+                        &::before {
+                            content: '';
+                            position: absolute;
+                            inset: 30px;
+                            box-shadow: 0 0 0 10px var(--instagram),
+                            0 0 0 20px var(--fondo-footer),
+                            0 0 0 22px var(--instagram);
+                            transition: .5s;
+                            
+                        }
+                    }
+                    &.whatsapp {
+                        &::before {
+                            content: '';
+                            position: absolute;
+                            inset: 30px;
+                            box-shadow: 0 0 0 10px var(--whatsapp),
+                            0 0 0 20px var(--fondo-footer),
+                            0 0 0 22px var(--whatsapp);
+                            transition: .5s;
+                            
+                        }
+                    }
+                    &.github {
+                        &::before {
+                            content: '';
+                            position: absolute;
+                            inset: 30px;
+                            box-shadow: 0 0 0 10px var(--github),
+                            0 0 0 20px var(--fondo-footer),
+                            0 0 0 22px var(--github);
+                            transition: .5s;
+                            
+                        }
+                    }
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        inset: 30px;
+                        box-shadow: 0 0 0 10px var(--facebook),
+                        0 0 0 20px var(--fondo-footer),
+                        0 0 0 22px var(--facebook);
+                        transition: .5s;
+                        
+                    }
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        inset: 0;
+                        background: var(--fondo-footer);
+                        transform: rotate(45deg);
                     }
                 }
             }
@@ -65,6 +250,18 @@ footer {
             grid-template-columns: repeat(1, 1fr);
             grid-gap: 30px;
             padding: 35px 0;
+        }
+    }
+}
+@media screen and (max-width: 426px) {
+    footer {
+        .group3 {
+            .redSocial {
+                ul {
+                    flex-direction: column;
+                    align-items: center;
+                }
+            }
         }
     }
 }

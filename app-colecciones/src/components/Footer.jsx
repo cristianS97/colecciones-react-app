@@ -16,14 +16,19 @@ export const Footer = () => {
                     <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugit, at.</p>
                     <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugit, at.</p>
                 </div>
+            </div>
+            <div className="group3">
                 <div className="box">
                     <h2>Siguenos</h2>
                     <div className="redSocial">
-                        <a href="#"><i className="fa-brands fa-facebook"></i></a>
-                        <a href="#"><i className="fa-brands fa-twitter"></i></a>
-                        <a href="#"><i className="fa-brands fa-github"></i></a>
-                        <a href="#"><i className="fa-brands fa-instagram"></i></a>
-                        <a href="#"><i className="fa-brands fa-youtube"></i></a>
+                        <ul>
+                            <li className='facebook'><a className='facebook' href="#"><i className="fa-brands fa-facebook"></i></a></li>
+                            <li className='twitter'><a className='twitter' href="#"><i className="fa-brands fa-twitter"></i></a></li>
+                            <li className='github'><a className='github' href="#"><i className="fa-brands fa-github"></i></a></li>
+                            <li className='whatsapp'><a className='whatsapp' href="#"><i className="fa-brands fa-whatsapp"></i></a></li>
+                            <li className='instagram'><a className='instagram' href="#"><i className="fa-brands fa-instagram"></i></a></li>
+                            <li className='youtube'><a className='youtube' href="#"><i className="fa-brands fa-youtube"></i></a></li>
+                        </ul>
                     </div>
                 </div>
             </div>
