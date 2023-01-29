@@ -4,19 +4,26 @@ import { NavLink, Link } from "react-router-dom";
 
 export const Menu = () => {
     const [lineClass, setLineClass] = useState(false);
+    const [hamburgerActive, setHamburgerActive] = useState('')
 
     const handleHamburgerClick = () => {
         setLineClass(!lineClass);
+        if(hamburgerActive === 'active') {
+            setHamburgerActive('');
+        } else {
+            setHamburgerActive('active');
+        }
     }
 
     const handleLinkClick = () => {
         setLineClass(false);
+        setHamburgerActive('');
     }
 
     return (
         <header>
             <div className="logo"><Link to='/'>My collections</Link></div>
-            <div className="hamburger" onClick={handleHamburgerClick}>
+            <div className={`hamburger ${hamburgerActive}`} onClick={handleHamburgerClick}>
                 <div className="line"></div>
                 <div className="line"></div>
                 <div className="line"></div>
