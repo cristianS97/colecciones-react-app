@@ -20,7 +20,7 @@ export const Collection = ({collection}) => {
                 <div className="image">
                     <img src={collection.cover} alt={collection.title} />
                 </div>
-                <h3>{collection.autor}<br /><span>Categoría</span></h3>
+                <h3>{collection.autor}<br /><span>Categoría: {collection.category}</span></h3>
             </div>
         </div>
     )

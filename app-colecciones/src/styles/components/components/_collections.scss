@@ -1,3 +1,22 @@
+.filtro-collections {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    li {
+        background: var(--button-background);
+        color: var(--color-fondo-sitio);
+        padding: 12px 20px;
+        margin: 5px;
+        letter-spacing: 1px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: .5s;
+        &.active {
+            background: var(--button-active);
+        }
+    }
+}
 .collections {
     position: relative;
     display: flex;
