@@ -14,8 +14,8 @@
         padding: 20px 15px;
         display: flex;
         flex-direction: column;
-        color: #fff;
-        box-shadow: 0 5px 202px rgba(0, 0, 0, .5);
+        color: var(--color-fondo-sitio);
+        box-shadow: 0 5px 202px var(--sombra-1);
         transition: .3s ease-in-out;
         &:hover {
             height: 420px;
@@ -30,7 +30,7 @@
             width: 260px;
             height: 260px;
             top: -60px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, .2);
+            box-shadow: 0 5px 20px var(--sombra-2);
             img {
                 max-width: 100%;
                 border-radius: 4px;
@@ -41,7 +41,7 @@
             margin-top: -140px;
             padding: 10px 15px;
             text-align: center;
-            color: #fff;
+            color: var(--color-fondo-sitio);
             visibility: hidden;
             opacity: 0;
             transition: .3s ease-in-out;
