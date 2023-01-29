@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 // react router
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
 export const Menu = () => {
     const [lineClass, setLineClass] = useState(false);
@@ -15,7 +15,7 @@ export const Menu = () => {
 
     return (
         <header>
-            <div className="logo">My collections</div>
+            <div className="logo"><Link to='/'>My collections</Link></div>
             <div className="hamburger" onClick={handleHamburgerClick}>
                 <div className="line"></div>
                 <div className="line"></div>

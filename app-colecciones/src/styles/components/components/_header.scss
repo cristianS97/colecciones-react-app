@@ -9,7 +9,9 @@ header {
     .logo {
         font-size: 28px;
         font-weight: bold;
-        color: var(--color-fondo-sitio);
+        a {
+            color: var(--color-fondo-sitio);
+        }
     }
     .hamburger {
         display: none;
