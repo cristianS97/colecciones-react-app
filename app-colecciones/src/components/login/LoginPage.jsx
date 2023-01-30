@@ -26,8 +26,14 @@ export const LoginPage = () => {
                     <div className="formBox">
                         <form action="">
                             <h2>Login</h2>
-                            <input type="text" placeholder='Correo' />
-                            <input type="password" placeholder='Contraseña' name="" id="" />
+                            <div className="inputBox">
+                                <input type="email" required />
+                                <i>Correo</i>
+                            </div>
+                            <div className="inputBox">
+                                <input type="password" name="" id="" required />
+                                <i>Contraseña</i>
+                            </div>
                             <input type="submit" value="Ingresar" />
                             <p className="signUp">No tienes cuenta? <Link onClick={toggleMenu}>Registrate</Link></p>
                         </form>
@@ -38,10 +44,22 @@ export const LoginPage = () => {
                     <div className="formBox">
                         <form action="">
                             <h2>Registro</h2>
-                            <input type="text" placeholder='Nombre' />
-                            <input type="text" placeholder='Correo' />
-                            <input type="password" placeholder='Contraseña' name="" id="" />
-                            <input type="password" placeholder='Confirme contraseña' name="" id="" />
+                            <div className="inputBox">
+                                <input type="text" required />
+                                <i>Nombre</i>
+                            </div>
+                            <div className="inputBox">
+                                <input type="text" required />
+                                <i>Correo</i>
+                            </div>
+                            <div className="inputBox">
+                                <input type="password" required />
+                                <i>Contraseña</i>
+                            </div>
+                            <div className="inputBox">
+                                <input type="password" required />
+                                <i>Confirme contraseña</i>
+                            </div>
                             <input type="submit" value="Registrar" />
                             <p className="signUp">Ya tienes cuenta? <Link onClick={toggleMenu}>Ingresa</Link></p>
                         </form>

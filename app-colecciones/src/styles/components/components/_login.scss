@@ -113,6 +113,31 @@
                         margin-bottom: 10px;
                         color: var(--form-title);
                     }
+                    .inputBox {
+                        position: relative;
+                        i {
+                            position: absolute;
+                            left: 0;
+                            padding: 15px 10px;
+                            color: var(--form-input);
+                            transition: .5s;
+                            pointer-events: none;
+                        }
+                        input {
+                            &:focus {
+                                ~i {
+                                    transform: translateY(-20px);
+                                    font-size: 0.8em;
+                                }
+                            }
+                            &:valid {
+                                ~i {
+                                    transform: translateY(-20px);
+                                    font-size: 0.8em;
+                                }
+                            }
+                        }
+                    }
                     input {
                         width: 100%;
                         padding: 10px;
