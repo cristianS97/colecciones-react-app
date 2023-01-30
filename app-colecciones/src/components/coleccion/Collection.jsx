@@ -14,7 +14,7 @@ export const Collection = ({collection}) => {
                 <p>{collection.fecha.toLocaleDateString('es-ES', options)}</p>
                 <p>{text}</p>
                 <p>Personas: {collection.involucrados.join(', ')}</p>
-                <Link className='btn-see-more'><span></span>Ver mas<span><i className="fa-solid fa-right-long"></i></span></Link>
+                <Link to="/collection" className='btn-see-more'><span></span>Ver mas<span><i className="fa-solid fa-right-long"></i></span></Link>
             </div>
             <div className="details">
                 <div className="image">
