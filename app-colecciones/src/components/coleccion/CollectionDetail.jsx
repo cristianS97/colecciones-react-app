@@ -6,7 +6,7 @@ import { elementosPrueba } from '../../data/elements';
 export const CollectionDetail = () => {
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
     const collection = elementosPrueba[0];
-    console.log(collection)
+
     return (
         <div className='collectionDetail'>
             <div className="detail">
@@ -18,12 +18,12 @@ export const CollectionDetail = () => {
                 <p>{collection.text}</p>
             </div>
             <div className="gallery">
-                <ul class="image-gallery">
+                <ul className="image-gallery">
                     {
                         collection.elements.map((element, idx) => (
                             <li key={idx}>
                                 <img src={element.image} alt="" />
-                                <div class="overlay"><span>{element.description}</span></div>
+                                <div className="overlay"><span>{element.description}</span></div>
                             </li>
                         ))
                     }
