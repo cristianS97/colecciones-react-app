@@ -123,6 +123,29 @@
                             transition: .5s;
                             pointer-events: none;
                         }
+                        span {
+                            position: absolute;
+                            width: 36px;
+                            height: 36px;
+                            right: 0;
+                            top: 25%;
+                            background: rgba(0, 0, 0, 0.05);
+                            border-radius: 50%;
+                            cursor: pointer;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            &::before {
+                                content: '\f06e';
+                                font-family: fontAwesome;
+                            }
+                            &.hide {
+                                &::before {
+                                    content: '\f070';
+                                    font-family: fontAwesome;
+                                }
+                            }
+                        }
                         input {
                             &:focus {
                                 ~i {
