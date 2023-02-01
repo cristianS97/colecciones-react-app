@@ -8,7 +8,7 @@ import { Footer } from '../components/Footer';
 
 export const Root = () => {
     const location = useLocation();
-    const classCon = location.pathname !== '/login' ? 'container' : '';
+    const classCon = location.pathname !== '/login' && location.pathname !== '/collection' ? 'container' : '';
 
     return (
         <Fragment>

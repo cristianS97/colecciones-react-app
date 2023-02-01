@@ -1,6 +1,40 @@
 @import '../base/colores';
 
 .collectionDetail {
+    .detail {
+        img {
+            width: 100%!important;
+            height: 250px;
+        }
+        .container {
+            margin: 20px;
+            h2 {
+                text-transform: uppercase;
+                text-align: center;
+            }
+            p {
+                text-align: center;
+            }
+            .btns {
+                margin: 10px auto;
+                display: flex;
+                justify-content: space-around;
+                button {
+                    width: 100px;
+                    padding: 5px!important;
+                    cursor: pointer;
+                    border: none;
+                    color: $color-fondo-sitio;
+                    &:nth-child(1) {
+                        background: $btn-login;
+                    }
+                    &:nth-child(2) {
+                        background: $btn-registro;
+                    }
+                }
+            }
+        }
+    }
     .image-gallery {
         text-align: center;
         flex-wrap: wrap;
@@ -22,7 +56,7 @@
                 top: 0;
                 left: 0;
                 transform: scale(0);
-                transition: all 0.2s 0.1s ease-in-out;
+                transition: all 0.3s ease-in-out;
                 color: #fff;
                 border-radius: 5px;
                 display: flex;
@@ -46,6 +80,13 @@
         &::after {
             content: "";
             flex-basis: 350px;
+        }
+    }
+}
+@media screen and (max-width: 426px) {
+    .image-gallery {
+        li {
+            width: 100%!important;
         }
     }
 }
