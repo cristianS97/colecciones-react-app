@@ -1,3 +1,5 @@
+@import 'colores';
+
 * {
     margin: 0;
     padding: 0;
@@ -5,40 +7,8 @@
     text-decoration: none;
     box-sizing: border-box;
 }
-:root {
-    // Menú de navegación
-    --color-fondo-sitio: #fefefe;
-    --color-fondo-menu: #11101b;
-    // Collection
-    --sombra-1: rgba(0, 0, 0, .5);
-    --sombra-2: rgba(0, 0, 0, .2);
-    // Login - logout
-    --login-fondo-1: #557085;
-    --login-fondo-active: #3e3f39;
-    --sombra-3: rgba(0, 0, 0, 0.1);
-    --btn-registro: #e73e49;
-    --btn-login: #677eff;
-    --form-title: #555;
-    --form-input: #333;
-    --form-link: #577eff;
-    // button
-    --button-background: #1e2635;
-    --button-active: #4c8aff;
-    // Footer
-    --fondo-footer: #0a141d;
-    --titulo-footer: #efefef;
-    --fondo-redes-sociales: #0d2033;
-    --fondo-footer-derechos: #0a1a2a;
-    // Redes sociales
-    --facebook: #1877f2;
-    --youtube: #ff0000;
-    --twitter: #1da1f2;
-    --instagram: #c32aa3;
-    --whatsapp: #25d366;
-    --github: #6e5494;
-}
 body {
-    background: var(--color-fondo-sitio);
+    background: $color-fondo-sitio;
 }
 .container {
     width: 90%;

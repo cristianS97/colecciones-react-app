@@ -1,6 +1,8 @@
+@import '../base/colores';
+
 footer {
     width: 100%;
-    background: var(--fondo-footer);
+    background: $fondo-footer;
     .group1 {
         width: 100%;
         max-width: 1200px;
@@ -21,12 +23,12 @@ footer {
                 }
             }
             h2 {
-                color: var(--color-fondo-sitio);
+                color: $color-fondo-sitio;
                 margin-bottom: 25px;
                 font-size: 20px;
             }
             p {
-                color: var(--titulo-footer);
+                color: $titulo-footer;
                 margin-bottom: 10px;
             }
         }
@@ -36,7 +38,7 @@ footer {
             margin: 0 auto;
             text-align: center;
             h2 {
-                color: var(--color-fondo-sitio);
+                color: $color-fondo-sitio;
                 margin-bottom: 25px;
                 font-size: 20px;
             }
@@ -68,22 +70,22 @@ footer {
                         font-size: 25px;
                         transition: .5s;
                         &.facebook {
-                            color: var(--facebook);
+                            color: $facebook;
                         }
                         &.youtube {
-                            color: var(--youtube);
+                            color: $youtube;
                         }
                         &.twitter {
-                            color: var(--twitter);
+                            color: $twitter;
                         }
                         &.instagram {
-                            color: var(--instagram);
+                            color: $instagram;
                         }
                         &.whatsapp {
-                            color: var(--whatsapp);
+                            color: $whatsapp;
                         }
                         &.github {
-                            color: var(--github);
+                            color: $github;
                         }
                     }
                     &:hover {
@@ -91,22 +93,22 @@ footer {
                         a {
                             font-size: 35px;
                             &.facebook {
-                                filter: drop-shadow(0 0 20px var(--facebook));
+                                filter: drop-shadow(0 0 20px $facebook);
                             }
                             &.youtube {
-                                filter: drop-shadow(0 0 20px var(--youtube));
+                                filter: drop-shadow(0 0 20px $youtube);
                             }
                             &.twitter {
-                                filter: drop-shadow(0 0 20px var(--twitter));
+                                filter: drop-shadow(0 0 20px $twitter);
                             }
                             &.instagram {
-                                filter: drop-shadow(0 0 20px var(--instagram));
+                                filter: drop-shadow(0 0 20px $instagram);
                             }
                             &.whatsapp {
-                                filter: drop-shadow(0 0 20px var(--whatsapp));
+                                filter: drop-shadow(0 0 20px $whatsapp);
                             }
                             &.github {
-                                filter: drop-shadow(0 0 20px var(--github));
+                                filter: drop-shadow(0 0 20px $github);
                             }
                         }
                         &.facebook {
@@ -145,9 +147,9 @@ footer {
                             content: '';
                             position: absolute;
                             inset: 30px;
-                            box-shadow: 0 0 0 10px var(--facebook),
-                            0 0 0 20px var(--fondo-footer),
-                            0 0 0 22px var(--facebook);
+                            box-shadow: 0 0 0 10px $facebook,
+                            0 0 0 20px $fondo-footer,
+                            0 0 0 22px $facebook;
                             transition: .5s;
                             
                         }
@@ -157,9 +159,9 @@ footer {
                             content: '';
                             position: absolute;
                             inset: 30px;
-                            box-shadow: 0 0 0 10px var(--youtube),
-                            0 0 0 20px var(--fondo-footer),
-                            0 0 0 22px var(--youtube);
+                            box-shadow: 0 0 0 10px $youtube,
+                            0 0 0 20px $fondo-footer,
+                            0 0 0 22px $youtube;
                             transition: .5s;
                             
                         }
@@ -169,9 +171,9 @@ footer {
                             content: '';
                             position: absolute;
                             inset: 30px;
-                            box-shadow: 0 0 0 10px var(--twitter),
-                            0 0 0 20px var(--fondo-footer),
-                            0 0 0 22px var(--twitter);
+                            box-shadow: 0 0 0 10px $twitter,
+                            0 0 0 20px $fondo-footer,
+                            0 0 0 22px $twitter;
                             transition: .5s;
                             
                         }
@@ -181,9 +183,9 @@ footer {
                             content: '';
                             position: absolute;
                             inset: 30px;
-                            box-shadow: 0 0 0 10px var(--instagram),
-                            0 0 0 20px var(--fondo-footer),
-                            0 0 0 22px var(--instagram);
+                            box-shadow: 0 0 0 10px $instagram,
+                            0 0 0 20px $fondo-footer,
+                            0 0 0 22px $instagram;
                             transition: .5s;
                             
                         }
@@ -193,9 +195,9 @@ footer {
                             content: '';
                             position: absolute;
                             inset: 30px;
-                            box-shadow: 0 0 0 10px var(--whatsapp),
-                            0 0 0 20px var(--fondo-footer),
-                            0 0 0 22px var(--whatsapp);
+                            box-shadow: 0 0 0 10px $whatsapp,
+                            0 0 0 20px $fondo-footer,
+                            0 0 0 22px $whatsapp;
                             transition: .5s;
                             
                         }
@@ -205,9 +207,9 @@ footer {
                             content: '';
                             position: absolute;
                             inset: 30px;
-                            box-shadow: 0 0 0 10px var(--github),
-                            0 0 0 20px var(--fondo-footer),
-                            0 0 0 22px var(--github);
+                            box-shadow: 0 0 0 10px $github,
+                            0 0 0 20px $fondo-footer,
+                            0 0 0 22px $github;
                             transition: .5s;
                             
                         }
@@ -216,9 +218,9 @@ footer {
                         content: '';
                         position: absolute;
                         inset: 30px;
-                        box-shadow: 0 0 0 10px var(--facebook),
-                        0 0 0 20px var(--fondo-footer),
-                        0 0 0 22px var(--facebook);
+                        box-shadow: 0 0 0 10px $facebook,
+                        0 0 0 20px $fondo-footer,
+                        0 0 0 22px $facebook;
                         transition: .5s;
                         
                     }
@@ -226,7 +228,7 @@ footer {
                         content: '';
                         position: absolute;
                         inset: 0;
-                        background: var(--fondo-footer);
+                        background: $fondo-footer;
                         transform: rotate(45deg);
                     }
                 }
@@ -234,10 +236,10 @@ footer {
         }
     }
     .group2 {
-        background: var(--fondo-footer-derechos);
+        background: $fondo-footer-derechos;
         padding: 15px 10px;
         text-align: center;
-        color: var(--color-fondo-sitio);
+        color: $color-fondo-sitio;
         small {
             font-size: 15px;
         }
