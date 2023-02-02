@@ -103,7 +103,7 @@
                         height: 100%;
                         background: $btn-login;
                         transition: .5s ease-in-out;
-                        transition-delay: .5s;
+                        transition-delay: 0s;
                     }
                     &::after {
                         content: '';
@@ -114,7 +114,7 @@
                         height: 100%;
                         background: $btn-login;
                         transition: .5s ease-in-out;
-                        transition-delay: .5s;
+                        transition-delay: 0s;
                     }
                     &:nth-child(2) {
                         &::before {
@@ -127,7 +127,7 @@
                     &:hover {
                         &::after, &::before {
                             width: 50%;
-                            transition-delay: .5s;
+                            transition-delay: 0s;
                         }
                         span {
                             &:nth-child(1) {
@@ -136,7 +136,7 @@
                             }
                             &:nth-child(2) {
                                 transform: scale(2);
-                                transition-delay: 0.75s;
+                                transition-delay: 0.25s;
                                 opacity: 1;
                                 z-index: 10;
                             }
