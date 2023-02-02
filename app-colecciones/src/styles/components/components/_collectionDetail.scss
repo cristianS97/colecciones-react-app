@@ -15,24 +15,6 @@
             p {
                 text-align: center;
             }
-            .btns {
-                margin: 10px auto;
-                display: flex;
-                justify-content: space-around;
-                button {
-                    width: 100px;
-                    padding: 5px!important;
-                    cursor: pointer;
-                    border: none;
-                    color: $color-fondo-sitio;
-                    &:nth-child(1) {
-                        background: $btn-login;
-                    }
-                    &:nth-child(2) {
-                        background: $btn-registro;
-                    }
-                }
-            }
         }
     }
     .image-gallery {
