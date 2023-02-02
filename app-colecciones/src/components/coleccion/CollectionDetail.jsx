@@ -1,11 +1,33 @@
 // React
 import React from 'react';
+// React router dom
+import { useNavigate } from 'react-router-dom';
+// Sweet alert
+import Swal from 'sweetalert2';
 // Mis importaciones
 import { elementosPrueba } from '../../data/elements';
 
 export const CollectionDetail = () => {
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
     const collection = elementosPrueba[0];
+    const navigate = useNavigate();
+
+    const deleteCollection = () => {
+            Swal.fire({
+            title: 'Quieres eliminar la colección y todos sus elementos?',
+            showDenyButton: true,
+            confirmButtonText: '<i class="fa-solid fa-check"></i> Si, eliminar',
+            denyButtonText: '<i class="fa-solid fa-ban"></i> No, conservar',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire('Colección eliminada!', '', 'success').then(() => {
+                    navigate('/');
+                });
+            } else if (result.isDenied) {
+                Swal.fire('No se ha eliminado la colección', '', 'error');
+            }
+        })
+    }
 
     return (
         <div className='collectionDetail'>
@@ -22,7 +44,7 @@ export const CollectionDetail = () => {
                             <span>Editar</span>
                             <span>Editar</span>
                         </button>
-                        <button>
+                        <button onClick={deleteCollection}>
                             <span>Eliminar</span>
                             <span>Eliminar</span>
                         </button>
