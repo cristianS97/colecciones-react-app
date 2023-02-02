@@ -73,7 +73,7 @@
         }
     }
 }
-
+// Botones de edición y eliminado
 .collectionDetail {
     .detail {
         .container {
@@ -158,5 +158,30 @@
                 }
             }
         }
+    }
+}
+// Ir al cielo
+.top-to-btm{
+    position: fixed;
+    bottom: 800px;
+    right: 40px;
+    width: 60px;
+    height: 60px;
+    background: $btn-login;
+    color: $titulo-footer;
+    font-size: 30px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    cursor: pointer;
+    visibility: hidden;
+    opacity: 0;
+    transition: .5s ;
+    &.active {
+        bottom: 40px;
+        visibility: visible;
+        opacity: 1;
     }
 }
