@@ -1,7 +1,7 @@
 // React
 import React from 'react';
 // React router dom
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 // Sweet alert
 import Swal from 'sweetalert2';
 // Mis importaciones
@@ -40,14 +40,14 @@ export const CollectionDetail = () => {
                     <p>Personas: {collection.involucrados.join(', ')}</p>
                     <p>{collection.text}</p>
                     <div className="btns">
-                        <button>
+                        <Link to='edit' className='btn'>
                             <span>Editar</span>
                             <span>Editar</span>
-                        </button>
-                        <button onClick={deleteCollection}>
+                        </Link>
+                        <a className='btn' onClick={deleteCollection}>
                             <span>Eliminar</span>
                             <span>Eliminar</span>
-                        </button>
+                        </a>
                     </div>
                 </div>
             </div>
