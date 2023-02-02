@@ -179,6 +179,7 @@
     visibility: hidden;
     opacity: 0;
     transition: .5s ;
+    z-index: 2;
     &.active {
         bottom: 40px;
         visibility: visible;
