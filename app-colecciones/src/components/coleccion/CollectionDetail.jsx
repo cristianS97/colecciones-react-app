@@ -18,8 +18,14 @@ export const CollectionDetail = () => {
                     <p>Personas: {collection.involucrados.join(', ')}</p>
                     <p>{collection.text}</p>
                     <div className="btns">
-                        <button>Editar</button>
-                        <button>Eliminar</button>
+                        <button>
+                            <span>Editar</span>
+                            <span>Editar</span>
+                        </button>
+                        <button>
+                            <span>Eliminar</span>
+                            <span>Eliminar</span>
+                        </button>
                     </div>
                 </div>
             </div>
