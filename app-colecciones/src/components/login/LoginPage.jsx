@@ -1,7 +1,7 @@
 // React
 import React, { useState } from 'react';
-// react router
-import { Link } from "react-router-dom";
+// React router dom
+import { Link } from 'react-router-dom';
 
 export const LoginPage = () => {
     const [toggleForm, setToggleForm] = useState('');
@@ -19,16 +19,22 @@ export const LoginPage = () => {
     }
 
     return (
-        <section className={'loginForm ' + toggleForm}>
-            <div className={'container ' + toggleForm}>
-
-                <div className='user signinBox'>
-                    <div className="imgBox">
-                        <img src="https://images.pexels.com/photos/3127155/pexels-photo-3127155.jpeg" alt="" />
+        <section className={`loginForm ${toggleForm}`}>
+            <div className="containerForm">
+                <div className="blueBg">
+                    <div className="box signin">
+                        <h2>Ya tienes una cuenta?</h2>
+                        <button onClick={toggleMenu} className="signinBtn">Iniciar sesión</button>
                     </div>
-                    <div className="formBox">
+                    <div className="box signup">
+                        <h2>No tienes cuenta?</h2>
+                        <button onClick={toggleMenu} className="signupBtn">Registrate</button>
+                    </div>
+                </div>
+                <div className={`formBox ${toggleForm}`}>
+                    <div className="form signin">
                         <form action="">
-                            <h2>Login</h2>
+                            <h3>Login</h3>
                             <div className="inputBox">
                                 <input type="email" required />
                                 <i>Correo</i>
@@ -42,21 +48,18 @@ export const LoginPage = () => {
                                 ></span>
                             </div>
                             <input type="submit" value="Ingresar" />
-                            <p className="signUp">No tienes cuenta? <Link onClick={toggleMenu}>Registrate</Link></p>
+                            <Link className='forgot'>Olvidaste tu contraseña?</Link>
                         </form>
                     </div>
-                </div>
-
-                <div className='user signupBox'>
-                    <div className="formBox">
+                    <div className="form signup">
                         <form action="">
-                            <h2>Registro</h2>
+                            <h3>Registro</h3>
                             <div className="inputBox">
                                 <input type="text" required />
                                 <i>Nombre</i>
                             </div>
                             <div className="inputBox">
-                                <input type="text" required />
+                                <input type="email" required />
                                 <i>Correo</i>
                             </div>
                             <div className="inputBox">
@@ -76,14 +79,9 @@ export const LoginPage = () => {
                                 ></span>
                             </div>
                             <input type="submit" value="Registrar" />
-                            <p className="signUp">Ya tienes cuenta? <Link onClick={toggleMenu}>Ingresa</Link></p>
                         </form>
                     </div>
-                    <div className="imgBox">
-                        <img src="https://images.pexels.com/photos/3993270/pexels-photo-3993270.jpeg" alt="" />
-                    </div>
                 </div>
-
             </div>
         </section>
     )
