@@ -15,12 +15,12 @@ element: Objeto ->    { image: Imagen | description: texto }
 */
 
 export const CollectionEdit = () => {
-    const [title, setTitle] = useState(elementosPrueba[0]['title']);
-    const [text, setText] = useState(elementosPrueba[0]['text']);
-    const [author, setAuthor] = useState(elementosPrueba[0]['autor']);
-    const [date, setDate] = useState(moment(elementosPrueba[0]['fecha']).format('yyyy-MM-DD'));
-    const [category, setCategory] = useState(elementosPrueba[0]['category']);
-    const [cover, setCover] = useState(elementosPrueba[0]['cover']);
+    const [title, setTitle] = useState(elementosPrueba[0].title);
+    const [text, setText] = useState(elementosPrueba[0].text);
+    const [author, setAuthor] = useState(elementosPrueba[0].autor);
+    const [date, setDate] = useState(moment(elementosPrueba[0].fecha).format('yyyy-MM-DD'));
+    const [category, setCategory] = useState(elementosPrueba[0].category);
+    const [cover, setCover] = useState(elementosPrueba[0].cover);
 
     const handleSubmit = (e) => {
         e.preventDefault();
