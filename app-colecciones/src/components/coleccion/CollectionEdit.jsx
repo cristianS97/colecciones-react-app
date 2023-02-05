@@ -1,35 +1,78 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { elementosPrueba } from '../../data/elements';
 import moment from 'moment';
-
-/*
-OK    title: Texto
-OK  text: Texto
-involucrados: Varios elementos
-OK  autor: Yo
-OK  category: Opción única
-OK  fecha: new Date(2023, 1, 2)
-OK cover: imagen
-elements: Arreglo
-element: Objeto ->    { image: Imagen | description: texto }
-*/
+import Swal from 'sweetalert2';
 
 export const CollectionEdit = () => {
-    const [title, setTitle] = useState(elementosPrueba[0].title);
-    const [text, setText] = useState(elementosPrueba[0].text);
-    const [author, setAuthor] = useState(elementosPrueba[0].autor);
-    const [date, setDate] = useState(moment(elementosPrueba[0].fecha).format('yyyy-MM-DD'));
-    const [category, setCategory] = useState(elementosPrueba[0].category);
-    const [cover, setCover] = useState(elementosPrueba[0].cover);
-    const [images, setImages] = useState(elementosPrueba[0].elements);
+    const navigate = useNavigate();
+    const [collection, setCollection] = useState({
+        title: elementosPrueba[0].title,
+        text: elementosPrueba[0].text,
+        author: elementosPrueba[0].autor,
+        date: moment(elementosPrueba[0].fecha).format('yyyy-MM-DD'),
+        category: elementosPrueba[0].category,
+        cover: elementosPrueba[0].cover,
+        images: elementosPrueba[0].elements
+    });
+    const {title, text, author, date, category, cover, images} = collection;
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(title, text, author, date, category, cover);
+        Swal.fire({
+            title: 'Quieres guardar los cambios?',
+            showDenyButton: true,
+            confirmButtonText: 'Guardar',
+            denyButtonText: 'No cambiar',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire('Guardado!', '', 'success');
+                navigate('/');
+            } else if (result.isDenied) {
+                Swal.fire('No se han guardado los cambios', '', 'error');
+            }
+        })
+    }
+
+    const handleInputChange = (e) => {
+        setCollection({
+            ...collection,
+            [e.target.name]: e.target.value
+        });
+    }
+
+    const setDate = (date) => {
+        setCollection({
+            ...collection,
+            date: date
+        });
+    }
+
+    const setCover = (cover) => {
+        setCollection({
+            ...collection,
+            cover: cover
+        });
+    }
+
+    const handleTextChange = (e) => {
+        e.preventDefault();
+        images[e.target.id].description = e.target.value;
+        // setImages(images);
+        setCollection({
+            ...collection,
+            images: images
+        });
     }
 
     const handleImageChange = (e) => {
-        console.log(e.target.files[0]);
+        e.preventDefault();
+        images[e.target.id].image = URL.createObjectURL(e.target.files[0]);
+        // setImages(images);
+        setCollection({
+            ...collection,
+            images: images
+        });
     }
 
     return (
@@ -41,8 +84,9 @@ export const CollectionEdit = () => {
                         <div className="inputBox">
                             <input
                                 value={title}
-                                onChange={(e) => setTitle(e.target.value)}
+                                onChange={handleInputChange}
                                 type="text"
+                                name="title"
                                 required
                             />
                             <i>Titulo</i>
@@ -50,8 +94,9 @@ export const CollectionEdit = () => {
                         <div className="inputBox">
                             <input
                                 value={text}
-                                onChange={(e) => setText(e.target.value)}
+                                onChange={handleInputChange}
                                 type="text"
+                                name="text"
                                 required
                             />
                             <i>Texto</i>
@@ -59,8 +104,9 @@ export const CollectionEdit = () => {
                         <div className="inputBox">
                             <input
                                 value={author}
-                                onChange={(e) => setAuthor(e.target.value)}
+                                onChange={handleInputChange}
                                 type="text"
+                                name="author"
                                 required
                             />
                             <i>Autor</i>
@@ -72,60 +118,66 @@ export const CollectionEdit = () => {
                                 <div className="option_container">
                                     <label className="option_field">
                                         <input
-                                            onClick={() => setCategory('cat1')}
+                                            onClick={handleInputChange}
                                             className="list_option"
                                             type="radio"
-                                            name="list"
+                                            name="category"
+                                            value="cat1"
                                             title="Option 1"
                                         />Cat 1
                                         <span className="checkmark"></span>
                                     </label>
                                     <label className="option_field">
                                         <input
-                                            onClick={() => setCategory('cat2')}
+                                            onClick={handleInputChange}
                                             className="list_option"
                                             type="radio"
-                                            name="list"
+                                            name="category"
+                                            value="cat2"
                                             title="Option 2"
                                         />Cat 2
                                         <span className="checkmark"></span>
                                     </label>
                                     <label className="option_field">
                                         <input
-                                            onClick={() => setCategory('cat3')}
+                                            onClick={handleInputChange}
                                             className="list_option"
                                             type="radio"
-                                            name="list"
+                                            name="category"
+                                            value="cat3"
                                             title="Option 3"
                                         />Cat 3
                                         <span className="checkmark"></span>
                                     </label>
                                     <label className="option_field">
                                         <input
-                                            onClick={() => setCategory('cat4')}
+                                            onClick={handleInputChange}
                                             className="list_option"
                                             type="radio"
-                                            name="list"
+                                            name="category"
+                                            value="cat4"
                                             title="Option 4"
                                         />Cat 4
                                         <span className="checkmark"></span>
                                     </label>
                                     <label className="option_field">
                                         <input
-                                            onClick={() => setCategory('cat5')}
+                                            onClick={handleInputChange}
                                             className="list_option"
                                             type="radio"
-                                            name="list"
+                                            name="category"
+                                            value="cat5"
                                             title="Option 5"
                                         />Cat 5
                                         <span className="checkmark"></span>
                                     </label>
                                     <label className="option_field">
                                         <input
-                                            onClick={() => setCategory('cat6')}
+                                            onClick={handleInputChange}
                                             className="list_option"
                                             type="radio"
-                                            name="list"
+                                            name="category"
+                                            value="cat6"
                                             title="Option 6"
                                         />Cat 6
                                         <span className="checkmark"></span>
@@ -136,7 +188,8 @@ export const CollectionEdit = () => {
                         <div className="inputBox">
                             <input
                                 placeholder='fecha'
-                                value={date} onChange={(e) => setDate(moment(e.target.value).format('yyyy-MM-DD'))}
+                                value={date}
+                                onChange={(e) => setDate(moment(e.target.value).format('yyyy-MM-DD'))}
                                 type="date"
                             />
                         </div>
@@ -153,10 +206,27 @@ export const CollectionEdit = () => {
                 {
                     images.map((image, idx) => (
                         <div className="inputBox" key={idx}>
-                            <img style={{width: '100px'}} src={image.image} alt="" />
-                            <input type="text" value={image.description} name="" id="" placeholder='Descripción' />
-                            <input type="file" onChange={(e) => handleImageChange(idx)} placeholder='Imagen' />
-                            <input type="checkbox" name="" id="" />
+                            <img
+                                style={{width: '100px'}}
+                                src={image.image}
+                                alt=""
+                            />
+                            <input
+                                type="text"
+                                id={idx}
+                                onChange={handleTextChange}
+                                value={image.description}
+                                placeholder='Descripción'
+                            />
+                            <input
+                                type="file"
+                                id={idx}
+                                onChange={handleImageChange}
+                                placeholder='Imagen'
+                            />
+                            <input
+                                type="checkbox"
+                            />
                         </div>
                     ))
                 }
