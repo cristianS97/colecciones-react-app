@@ -37,7 +37,6 @@ export const CollectionDetail = () => {
                     <h2>{collection.autor} | {collection.title}</h2>
                     <p>Categoría: {collection.category}</p>
                     <p>{collection.fecha.toLocaleDateString('es-ES', options)}</p>
-                    <p>Personas: {collection.involucrados.join(', ')}</p>
                     <p>{collection.text}</p>
                     <div className="btns">
                         <Link to='edit' className='btn'>

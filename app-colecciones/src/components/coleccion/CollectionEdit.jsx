@@ -16,6 +16,7 @@ export const CollectionEdit = () => {
         images: elementosPrueba[0].elements
     });
     const {title, text, author, date, category, cover, images} = collection;
+    const [checkedState, setCheckedState] = useState(new Array(images.length).fill(false));
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -27,11 +28,36 @@ export const CollectionEdit = () => {
         }).then((result) => {
             if (result.isConfirmed) {
                 Swal.fire('Guardado!', '', 'success');
-                navigate('/');
+                removeImages();
+                navigate('/collection');
             } else if (result.isDenied) {
                 Swal.fire('No se han guardado los cambios', '', 'error');
             }
         })
+    }
+
+    const handleCheckChange = (e) => {
+        const newChecked = checkedState.map((element, idx) => {
+            if(idx === parseInt(e.target.id)) {
+                return e.target.checked;
+            }
+            return element;
+        });
+        setCheckedState(newChecked);
+    }
+
+    const removeImages = () => {
+        let newImages = [];
+        checkedState.map((element, i) => {
+            if(!element) {
+                newImages.push(images[i]);
+            }
+        });
+        setCollection({
+            ...collection,
+            images: newImages
+        });
+        setCheckedState(new Array(images.length).fill(false));
     }
 
     const handleInputChange = (e) => {
@@ -58,7 +84,6 @@ export const CollectionEdit = () => {
     const handleTextChange = (e) => {
         e.preventDefault();
         images[e.target.id].description = e.target.value;
-        // setImages(images);
         setCollection({
             ...collection,
             images: images
@@ -68,7 +93,6 @@ export const CollectionEdit = () => {
     const handleImageChange = (e) => {
         e.preventDefault();
         images[e.target.id].image = URL.createObjectURL(e.target.files[0]);
-        // setImages(images);
         setCollection({
             ...collection,
             images: images
@@ -92,13 +116,12 @@ export const CollectionEdit = () => {
                             <i>Titulo</i>
                         </div>
                         <div className="inputBox">
-                            <input
+                            <textarea
                                 value={text}
                                 onChange={handleInputChange}
-                                type="text"
                                 name="text"
                                 required
-                            />
+                            ></textarea>
                             <i>Texto</i>
                         </div>
                         <div className="inputBox">
@@ -123,7 +146,6 @@ export const CollectionEdit = () => {
                                             type="radio"
                                             name="category"
                                             value="cat1"
-                                            title="Option 1"
                                         />Cat 1
                                         <span className="checkmark"></span>
                                     </label>
@@ -134,7 +156,6 @@ export const CollectionEdit = () => {
                                             type="radio"
                                             name="category"
                                             value="cat2"
-                                            title="Option 2"
                                         />Cat 2
                                         <span className="checkmark"></span>
                                     </label>
@@ -145,7 +166,6 @@ export const CollectionEdit = () => {
                                             type="radio"
                                             name="category"
                                             value="cat3"
-                                            title="Option 3"
                                         />Cat 3
                                         <span className="checkmark"></span>
                                     </label>
@@ -156,7 +176,6 @@ export const CollectionEdit = () => {
                                             type="radio"
                                             name="category"
                                             value="cat4"
-                                            title="Option 4"
                                         />Cat 4
                                         <span className="checkmark"></span>
                                     </label>
@@ -167,7 +186,6 @@ export const CollectionEdit = () => {
                                             type="radio"
                                             name="category"
                                             value="cat5"
-                                            title="Option 5"
                                         />Cat 5
                                         <span className="checkmark"></span>
                                     </label>
@@ -178,7 +196,6 @@ export const CollectionEdit = () => {
                                             type="radio"
                                             name="category"
                                             value="cat6"
-                                            title="Option 6"
                                         />Cat 6
                                         <span className="checkmark"></span>
                                     </label>
@@ -211,13 +228,15 @@ export const CollectionEdit = () => {
                                 src={image.image}
                                 alt=""
                             />
-                            <input
-                                type="text"
-                                id={idx}
-                                onChange={handleTextChange}
-                                value={image.description}
-                                placeholder='Descripción'
-                            />
+                            <div className="inputBox">
+                                <textarea
+                                    id={idx}
+                                    onChange={handleTextChange}
+                                    value={image.description}
+                                    required
+                                ></textarea>
+                                <i>Descripción</i>
+                            </div>
                             <input
                                 type="file"
                                 id={idx}
@@ -226,6 +245,10 @@ export const CollectionEdit = () => {
                             />
                             <input
                                 type="checkbox"
+                                name="deleteImage"
+                                id={idx}
+                                onChange={handleCheckChange}
+                                checked={checkedState[idx]}
                             />
                         </div>
                     ))

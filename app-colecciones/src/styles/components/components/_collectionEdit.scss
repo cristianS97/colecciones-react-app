@@ -18,7 +18,7 @@
                 font-size: 0.9em;
                 pointer-events: none;
             }
-            input {
+            input, textarea {
                 &:focus {
                     ~i {
                         transform: translateY(-20px);
