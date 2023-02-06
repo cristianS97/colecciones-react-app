@@ -16,8 +16,8 @@ export const CollectionDetail = () => {
             Swal.fire({
             title: 'Quieres eliminar la colección y todos sus elementos?',
             showDenyButton: true,
-            confirmButtonText: '<i class="fa-solid fa-check"></i> Si, eliminar',
-            denyButtonText: '<i class="fa-solid fa-ban"></i> No, conservar',
+            confirmButtonText: '<i className="fa-solid fa-check"></i> Si, eliminar',
+            denyButtonText: '<i className="fa-solid fa-ban"></i> No, conservar',
         }).then((result) => {
             if (result.isConfirmed) {
                 Swal.fire('Colección eliminada!', '', 'success').then(() => {
@@ -36,16 +36,16 @@ export const CollectionDetail = () => {
                 <div className="container">
                     <h2>{collection.autor} | {collection.title}</h2>
                     <p>Categoría: {collection.category}</p>
-                    <p>{collection.fecha.toLocaleDateString('es-ES', options)}</p>
+                    <p>{collection.date.toLocaleDateString('es-ES', options)}</p>
                     <p>{collection.text}</p>
                     <div className="btns">
                         <Link to='edit' className='btn'>
-                            <span><i class="fa-solid fa-pen-to-square"></i> Editar</span>
-                            <span><i class="fa-solid fa-pen-to-square"></i> Editar</span>
+                            <span><i className="fa-solid fa-pen-to-square"></i> Editar</span>
+                            <span><i className="fa-solid fa-pen-to-square"></i> Editar</span>
                         </Link>
                         <a className='btn' onClick={deleteCollection}>
-                            <span><i class="fa-solid fa-trash"></i> Eliminar</span>
-                            <span><i class="fa-solid fa-trash"></i> Eliminar</span>
+                            <span><i className="fa-solid fa-trash"></i> Eliminar</span>
+                            <span><i className="fa-solid fa-trash"></i> Eliminar</span>
                         </a>
                     </div>
                 </div>

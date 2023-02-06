@@ -122,18 +122,18 @@
                                     visibility: visible;
                                 }
                             }
-                            .checkmark {
-                                position: relative;
-                                display: inline-block;
-                                width: 16px;
-                                height: 10px;
-                                left: 80px;
-                                bottom: 5px;
-                                border: solid black;
-                                border-width: 0 0 3px 3px;
-                                transform: rotate(-45deg);
-                                visibility: hidden;
-                            }
+                        }
+                        .checkmark {
+                            position: relative;
+                            display: inline-block;
+                            width: 16px;
+                            height: 10px;
+                            left: 80px;
+                            bottom: 5px;
+                            border: solid black;
+                            border-width: 0 0 3px 3px;
+                            transform: rotate(-45deg);
+                            visibility: hidden;
                         }
                     }
                 }

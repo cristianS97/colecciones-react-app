@@ -3,28 +3,28 @@ import { useNavigate } from 'react-router-dom';
 import { elementosPrueba } from '../../data/elements';
 import moment from 'moment';
 import Swal from 'sweetalert2';
+import { GalleryEdit } from './edit/GalleryEdit';
+import { SimpleInput } from './edit/SimpleInput';
+import { SelectCategory } from './edit/SelectCategory';
+
+const categories = ['cat1', 'cat2', 'cat3', 'cat4', 'cat5', 'cat6'];
 
 export const CollectionEdit = () => {
     const navigate = useNavigate();
     const [collection, setCollection] = useState({
-        title: elementosPrueba[0].title,
-        text: elementosPrueba[0].text,
-        author: elementosPrueba[0].autor,
-        date: moment(elementosPrueba[0].fecha).format('yyyy-MM-DD'),
-        category: elementosPrueba[0].category,
-        cover: elementosPrueba[0].cover,
-        images: elementosPrueba[0].elements
+        ...elementosPrueba[0],
+        date: moment(elementosPrueba[0].date).format('yyyy-MM-DD')
     });
-    const {title, text, author, date, category, cover, images} = collection;
-    const [checkedState, setCheckedState] = useState(new Array(images.length).fill(false));
+    const {title, text, author, date, category, cover, elements} = collection;
+    const [checkedState, setCheckedState] = useState(new Array(elements.length).fill(false));
 
     const handleSubmit = (e) => {
         e.preventDefault();
         Swal.fire({
             title: 'Quieres guardar los cambios?',
             showDenyButton: true,
-            confirmButtonText: '<i class="fa-solid fa-check"></i> Guardar',
-            denyButtonText: '<i class="fa-solid fa-ban"></i> No cambiar',
+            confirmButtonText: '<i className="fa-solid fa-check"></i> Guardar',
+            denyButtonText: '<i className="fa-solid fa-ban"></i> No cambiar',
         }).then((result) => {
             if (result.isConfirmed) {
                 Swal.fire('Guardado!', '', 'success');
@@ -48,16 +48,16 @@ export const CollectionEdit = () => {
 
     const removeImages = () => {
         let newImages = [];
-        checkedState.map((element, i) => {
+        checkedState.forEach((element, i) => {
             if(!element) {
-                newImages.push(images[i]);
+                newImages.push(elements[i]);
             }
         });
         setCollection({
             ...collection,
-            images: newImages
+            elements: newImages
         });
-        setCheckedState(new Array(images.length).fill(false));
+        setCheckedState(new Array(elements.length).fill(false));
     }
 
     const handleInputChange = (e) => {
@@ -82,27 +82,26 @@ export const CollectionEdit = () => {
     }
 
     const handleTextChange = (e) => {
-        e.preventDefault();
-        images[e.target.id].description = e.target.value;
+        elements[e.target.id].description = e.target.value;
         setCollection({
             ...collection,
-            images: images
+            elements: elements
         });
     }
 
     const handleImageChange = (e) => {
-        e.preventDefault();
-        images[e.target.id].image = URL.createObjectURL(e.target.files[0]);
+        elements[e.target.id].image = URL.createObjectURL(e.target.files[0]);
         setCollection({
             ...collection,
-            images: images
+            elements: elements
         });
     }
 
     const addImage = (e) => {
+        e.preventDefault();
         setCollection({
             ...collection,
-            images: [...images, {id:'', image:'', description:''}]
+            elements: [...elements, {id:'', image:'', description:''}]
         });
     }
 
@@ -112,106 +111,12 @@ export const CollectionEdit = () => {
             <form className='formEditCollection' action="" onSubmit={handleSubmit}>
                 <div className="row">
                     <div className="col">
+                        <SimpleInput value={title} handleInputChange={handleInputChange} name="title" label="Titulo" />
+                        <SimpleInput value={text} handleInputChange={handleInputChange} name="text" label="Texto" />
+                        <SimpleInput value={author} handleInputChange={handleInputChange} name="author" label="Autor" />
+                        <SelectCategory categories={categories} handleInputChange={handleInputChange} category={category} />
                         <div className="inputBox">
                             <input
-                                value={title}
-                                onChange={handleInputChange}
-                                type="text"
-                                name="title"
-                                required
-                            />
-                            <i>Titulo</i>
-                        </div>
-                        <div className="inputBox">
-                            <textarea
-                                value={text}
-                                onChange={handleInputChange}
-                                name="text"
-                                required
-                            ></textarea>
-                            <i>Texto</i>
-                        </div>
-                        <div className="inputBox">
-                            <input
-                                value={author}
-                                onChange={handleInputChange}
-                                type="text"
-                                name="author"
-                                required
-                            />
-                            <i>Autor</i>
-                        </div>
-                        <div className="inputBox">
-                            <div className='selectCategory'>
-                                <button type="button" className="list_btn">{category}</button>
-                                <span className="button_arrow"></span>
-                                <div className="option_container">
-                                    <label className="option_field">
-                                        <input
-                                            onClick={handleInputChange}
-                                            className="list_option"
-                                            type="radio"
-                                            name="category"
-                                            value="cat1"
-                                        />Cat 1
-                                        <span className="checkmark"></span>
-                                    </label>
-                                    <label className="option_field">
-                                        <input
-                                            onClick={handleInputChange}
-                                            className="list_option"
-                                            type="radio"
-                                            name="category"
-                                            value="cat2"
-                                        />Cat 2
-                                        <span className="checkmark"></span>
-                                    </label>
-                                    <label className="option_field">
-                                        <input
-                                            onClick={handleInputChange}
-                                            className="list_option"
-                                            type="radio"
-                                            name="category"
-                                            value="cat3"
-                                        />Cat 3
-                                        <span className="checkmark"></span>
-                                    </label>
-                                    <label className="option_field">
-                                        <input
-                                            onClick={handleInputChange}
-                                            className="list_option"
-                                            type="radio"
-                                            name="category"
-                                            value="cat4"
-                                        />Cat 4
-                                        <span className="checkmark"></span>
-                                    </label>
-                                    <label className="option_field">
-                                        <input
-                                            onClick={handleInputChange}
-                                            className="list_option"
-                                            type="radio"
-                                            name="category"
-                                            value="cat5"
-                                        />Cat 5
-                                        <span className="checkmark"></span>
-                                    </label>
-                                    <label className="option_field">
-                                        <input
-                                            onClick={handleInputChange}
-                                            className="list_option"
-                                            type="radio"
-                                            name="category"
-                                            value="cat6"
-                                        />Cat 6
-                                        <span className="checkmark"></span>
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="inputBox">
-                            <input
-                                placeholder='fecha'
                                 value={date}
                                 onChange={(e) => setDate(moment(e.target.value).format('yyyy-MM-DD'))}
                                 type="date"
@@ -232,43 +137,16 @@ export const CollectionEdit = () => {
                 </div>
                 <div className="images">
                     {
-                        images.map((image, idx) => (
-                            <div className="row" key={idx}>
-                                <div className="col">
-                                    <img
-                                        src={image.image}
-                                        alt=""
-                                    />
-                                    <label className='imageUpload' htmlFor={idx}>
-                                        <p><i className="fa fa-2x fa-camera"></i> Selecciona una imagen</p>
-                                        <input
-                                            type="file"
-                                            onChange={handleImageChange}
-                                            id={idx}
-                                        />
-                                    </label>
-                                </div>
-                                <div className="col">
-                                    <div className="inputBox">
-                                        <textarea
-                                            id={idx}
-                                            onChange={handleTextChange}
-                                            value={image.description}
-                                            required
-                                        ></textarea>
-                                        <i>Descripción</i>
-                                    </div>
-                                    <label>Borrar imagen
-                                        <input
-                                            type="checkbox"
-                                            name="deleteImage"
-                                            id={idx}
-                                            onChange={handleCheckChange}
-                                            checked={checkedState[idx]}
-                                        />
-                                    </label>
-                                </div>
-                            </div>
+                        elements.map((image, idx) => (
+                            <GalleryEdit
+                                key={idx}
+                                image={image}
+                                idx={idx}
+                                handleImageChange={handleImageChange}
+                                handleTextChange={handleTextChange}
+                                handleCheckChange={handleCheckChange}
+                                checkedState={checkedState}
+                            />
                         ))
                     }
                 </div>
