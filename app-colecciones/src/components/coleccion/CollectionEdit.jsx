@@ -236,7 +236,6 @@ export const CollectionEdit = () => {
                             <div className="row" key={idx}>
                                 <div className="col">
                                     <img
-                                        style={{width: '100px'}}
                                         src={image.image}
                                         alt=""
                                     />
@@ -279,8 +278,8 @@ export const CollectionEdit = () => {
                         <span><i className="fas fa-save"></i> Guardar</span>
                     </button>
                     <button onClick={addImage} className='btn'>
-                        <span><i class="fa-solid fa-square-plus"></i> imagen</span>
-                        <span><i class="fa-solid fa-square-plus"></i> imagen</span>
+                        <span><i className="fa-solid fa-square-plus"></i> imagen</span>
+                        <span><i className="fa-solid fa-square-plus"></i> imagen</span>
                     </button>
                 </div>
             </form>

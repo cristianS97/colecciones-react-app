@@ -48,6 +48,7 @@
                 }
             }
             .imageUpload {
+                cursor: pointer;
                 input {
                     display: none;
                 }
@@ -146,7 +147,11 @@
                 padding: 10px 0;
                 .col {
                     width: calc(50% - 10px);
+                    img {
+                        width: 150px;
+                    }
                     .imageUpload {
+                        cursor: pointer;
                         input {
                             display: none;
                         }
@@ -173,6 +178,9 @@
                     .col {
                         width: 100%;
                         margin-bottom: 20px;
+                        img {
+                            width: 100%;
+                        }
                     }
                 }
             }
