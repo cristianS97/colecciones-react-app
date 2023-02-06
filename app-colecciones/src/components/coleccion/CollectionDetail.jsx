@@ -40,12 +40,12 @@ export const CollectionDetail = () => {
                     <p>{collection.text}</p>
                     <div className="btns">
                         <Link to='edit' className='btn'>
-                            <span>Editar</span>
-                            <span>Editar</span>
+                            <span><i class="fa-solid fa-pen-to-square"></i> Editar</span>
+                            <span><i class="fa-solid fa-pen-to-square"></i> Editar</span>
                         </Link>
                         <a className='btn' onClick={deleteCollection}>
-                            <span>Eliminar</span>
-                            <span>Eliminar</span>
+                            <span><i class="fa-solid fa-trash"></i> Eliminar</span>
+                            <span><i class="fa-solid fa-trash"></i> Eliminar</span>
                         </a>
                     </div>
                 </div>

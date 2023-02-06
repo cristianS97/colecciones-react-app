@@ -23,8 +23,8 @@ export const CollectionEdit = () => {
         Swal.fire({
             title: 'Quieres guardar los cambios?',
             showDenyButton: true,
-            confirmButtonText: 'Guardar',
-            denyButtonText: 'No cambiar',
+            confirmButtonText: '<i class="fa-solid fa-check"></i> Guardar',
+            denyButtonText: '<i class="fa-solid fa-ban"></i> No cambiar',
         }).then((result) => {
             if (result.isConfirmed) {
                 Swal.fire('Guardado!', '', 'success');
@@ -103,8 +103,8 @@ export const CollectionEdit = () => {
         <div className='collectionEdit'>
             <h1>Edite su entrada</h1>
             <form className='formEditCollection' action="" onSubmit={handleSubmit}>
-                <div className="row1">
-                    <div className="col1">
+                <div className="row">
+                    <div className="col">
                         <div className="inputBox">
                             <input
                                 value={title}
@@ -212,48 +212,64 @@ export const CollectionEdit = () => {
                         </div>
                         <div className="inputBox">
                             <img src={cover} alt="" />
-                            <input
-                                placeholder='cover'
-                                onChange={(e) => setCover(URL.createObjectURL(e.target.files[0]))}
-                                type="file"
-                            />
+                            <label className='imageUpload' htmlFor="inputTag">
+                                <p><i className="fa fa-2x fa-camera"></i> Selecciona una imagen</p>
+                                <input
+                                    id="inputTag"
+                                    type="file"
+                                    onChange={(e) => setCover(URL.createObjectURL(e.target.files[0]))}
+                                />
+                            </label>
                         </div>
                     </div>
                 </div>
-                {
-                    images.map((image, idx) => (
-                        <div className="inputBox" key={idx}>
-                            <img
-                                style={{width: '100px'}}
-                                src={image.image}
-                                alt=""
-                            />
-                            <div className="inputBox">
-                                <textarea
-                                    id={idx}
-                                    onChange={handleTextChange}
-                                    value={image.description}
-                                    required
-                                ></textarea>
-                                <i>Descripción</i>
+                <div className="images">
+                    {
+                        images.map((image, idx) => (
+                            <div className="row" key={idx}>
+                                <div className="col">
+                                    <img
+                                        style={{width: '100px'}}
+                                        src={image.image}
+                                        alt=""
+                                    />
+                                    <label className='imageUpload' htmlFor={idx}>
+                                        <p><i className="fa fa-2x fa-camera"></i> Selecciona una imagen</p>
+                                        <input
+                                            type="file"
+                                            onChange={handleImageChange}
+                                            id={idx}
+                                        />
+                                    </label>
+                                </div>
+                                <div className="col">
+                                    <div className="inputBox">
+                                        <textarea
+                                            id={idx}
+                                            onChange={handleTextChange}
+                                            value={image.description}
+                                            required
+                                        ></textarea>
+                                        <i>Descripción</i>
+                                    </div>
+                                    <label>Borrar imagen
+                                        <input
+                                            type="checkbox"
+                                            name="deleteImage"
+                                            id={idx}
+                                            onChange={handleCheckChange}
+                                            checked={checkedState[idx]}
+                                        />
+                                    </label>
+                                </div>
                             </div>
-                            <input
-                                type="file"
-                                id={idx}
-                                onChange={handleImageChange}
-                                placeholder='Imagen'
-                            />
-                            <input
-                                type="checkbox"
-                                name="deleteImage"
-                                id={idx}
-                                onChange={handleCheckChange}
-                                checked={checkedState[idx]}
-                            />
-                        </div>
-                    ))
-                }
-                <input type="submit" value="Guardar" />
+                        ))
+                    }
+                </div>
+                <button className='btn' type="submit">
+                    <span><i className="fas fa-save"></i> Guardar</span>
+                    <span><i className="fas fa-save"></i> Guardar</span>
+                </button>
             </form>
         </div>
     )
