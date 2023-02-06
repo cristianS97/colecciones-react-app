@@ -8,6 +8,7 @@ import { Colecciones } from "../components/coleccion/Colecciones";
 import { LoginPage } from "../components/login/LoginPage";
 import { CollectionDetail } from "../components/coleccion/CollectionDetail";
 import { CollectionEdit } from "../components/coleccion/CollectionEdit";
+import { CollectionNew } from "../components/coleccion/CollectionNew";
 
 export const router = createBrowserRouter([
     {
@@ -30,6 +31,10 @@ export const router = createBrowserRouter([
             {
                 path: 'collection/edit',
                 element: <CollectionEdit />
+            },
+            {
+                path: 'collection/new',
+                element: <CollectionNew />
             },
             {
                 path: 'login',

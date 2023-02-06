@@ -1,5 +1,7 @@
 // React
 import React, { Fragment, useState } from 'react';
+// React router dom
+import { Link } from 'react-router-dom';
 // Mis importaciones
 import { Collection } from './Collection';
 import { elementosPrueba } from '../../data/elements';
@@ -21,6 +23,7 @@ export const Colecciones = () => {
     return (
         <Fragment>
             <ul className='filtro-collections'>
+                <Link to='/collection/new'>New</Link>
                 <li className={`${activeCategory==='all' ? 'active' : ''}`} onClick={(e) => handleClick(e)}>All</li>
                 {categories.map((categorie, index) => (
                     <li className={`${activeCategory===categorie ? 'active' : ''}`} onClick={(e) => handleClick(e)} key={index}>{categorie}</li>

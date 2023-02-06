@@ -5,7 +5,7 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    li {
+    li, a {
         background: $button-background;
         color: $color-fondo-sitio;
         padding: 12px 20px;
