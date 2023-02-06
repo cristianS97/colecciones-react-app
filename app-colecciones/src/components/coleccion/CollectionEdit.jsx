@@ -99,6 +99,13 @@ export const CollectionEdit = () => {
         });
     }
 
+    const addImage = (e) => {
+        setCollection({
+            ...collection,
+            images: [...images, {id:'', image:'', description:''}]
+        });
+    }
+
     return (
         <div className='collectionEdit'>
             <h1>Edite su entrada</h1>
@@ -266,10 +273,16 @@ export const CollectionEdit = () => {
                         ))
                     }
                 </div>
-                <button className='btn' type="submit">
-                    <span><i className="fas fa-save"></i> Guardar</span>
-                    <span><i className="fas fa-save"></i> Guardar</span>
-                </button>
+                <div className="btns">
+                    <button className='btn' type="submit">
+                        <span><i className="fas fa-save"></i> Guardar</span>
+                        <span><i className="fas fa-save"></i> Guardar</span>
+                    </button>
+                    <button onClick={addImage} className='btn'>
+                        <span><i class="fa-solid fa-square-plus"></i> imagen</span>
+                        <span><i class="fa-solid fa-square-plus"></i> imagen</span>
+                    </button>
+                </div>
             </form>
         </div>
     )
