@@ -131,7 +131,7 @@ export const CollectionForm = ({type}) => {
                         <SimpleInput value={title} handleInputChange={handleInputChange} name="title" label="Titulo" />
                         <SimpleInput value={text} handleInputChange={handleInputChange} name="text" label="Texto" />
                         <SimpleInput value={author} handleInputChange={handleInputChange} name="author" label="Autor" />
-                        <SelectCategory setCategories={setCategories} categories={categories} handleInputChange={handleInputChange} category={category} />
+                        <SelectCategory collection={collection} setCollection={setCollection} setCategories={setCategories} categories={categories} handleInputChange={handleInputChange} category={category} />
                         <div className="inputBox">
                             <input
                                 value={date}

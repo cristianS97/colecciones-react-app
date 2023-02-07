@@ -1,12 +1,16 @@
 import React, { useState } from 'react';
 
-export const SelectCategory = ({categories, handleInputChange, category, setCategories}) => {
+export const SelectCategory = ({categories, handleInputChange, category, setCategories, collection, setCollection}) => {
     const [newCategory, setNewCategory] = useState('');
 
     const handleNewCategory = (e) => {
         e.preventDefault();
         if(newCategory.trim() !== '') {
             setCategories([...categories, newCategory]);
+            setCollection({
+              ...collection,
+              category: newCategory
+            });
         }
         setNewCategory('');
     }
