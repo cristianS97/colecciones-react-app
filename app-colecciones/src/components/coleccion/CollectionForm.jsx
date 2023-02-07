@@ -7,14 +7,30 @@ import { GalleryEdit } from './edit/GalleryEdit';
 import { SimpleInput } from './edit/SimpleInput';
 import { SelectCategory } from './edit/SelectCategory';
 
-const categories = ['cat1', 'cat2', 'cat3', 'cat4', 'cat5', 'cat6'];
-
-export const CollectionEdit = () => {
+export const CollectionForm = ({type}) => {
     const navigate = useNavigate();
-    const [collection, setCollection] = useState({
-        ...elementosPrueba[0],
-        date: moment(elementosPrueba[0].date).format('yyyy-MM-DD')
-    });
+    const [categories, setCategories] = useState(['cat1', 'cat2', 'cat3', 'cat4', 'cat5', 'cat6'])
+
+    let initState;
+    if(type === 'edit') {
+        initState = {
+            ...elementosPrueba[1],
+            date: moment(elementosPrueba[1].date).format('yyyy-MM-DD')
+        };
+    } else {
+        initState = {
+            title: '',
+            text: '',
+            author: '',
+            category: categories[0],
+            date: moment().format('yyyy-MM-DD'),
+            cover: '',
+            elements: []
+        };
+    }
+
+    const [collection, setCollection] = useState(initState);
+
     const {title, text, author, date, category, cover, elements} = collection;
     const [checkedState, setCheckedState] = useState(new Array(elements.length).fill(false));
 
@@ -27,9 +43,10 @@ export const CollectionEdit = () => {
             denyButtonText: '<i className="fa-solid fa-ban"></i> No cambiar',
         }).then((result) => {
             if (result.isConfirmed) {
-                Swal.fire('Guardado!', '', 'success');
                 removeImages();
-                navigate('/collection');
+                Swal.fire('Guardado!', '', 'success').then(() => {
+                    navigate('/collection');
+                });
             } else if (result.isDenied) {
                 Swal.fire('No se han guardado los cambios', '', 'error');
             }
@@ -101,20 +118,20 @@ export const CollectionEdit = () => {
         e.preventDefault();
         setCollection({
             ...collection,
-            elements: [...elements, {id:'', image:'', description:''}]
+            elements: [...elements, {id:Math.random().toString(), image:'', description:''}]
         });
     }
 
     return (
         <div className='collectionEdit'>
-            <h1>Edite su entrada</h1>
+            <h1>{type === 'edit' ? 'Edite su entrada' : 'Cree una nueva colección'}</h1>
             <form className='formEditCollection' action="" onSubmit={handleSubmit}>
                 <div className="row">
                     <div className="col">
                         <SimpleInput value={title} handleInputChange={handleInputChange} name="title" label="Titulo" />
                         <SimpleInput value={text} handleInputChange={handleInputChange} name="text" label="Texto" />
                         <SimpleInput value={author} handleInputChange={handleInputChange} name="author" label="Autor" />
-                        <SelectCategory categories={categories} handleInputChange={handleInputChange} category={category} />
+                        <SelectCategory setCategories={setCategories} categories={categories} handleInputChange={handleInputChange} category={category} />
                         <div className="inputBox">
                             <input
                                 value={date}
