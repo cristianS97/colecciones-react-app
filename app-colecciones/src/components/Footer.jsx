@@ -36,7 +36,7 @@ export const Footer = () => {
                 </div>
             </div>
             <div className="group2">
-                <small>&copy; 2023 <b>GatoSM</b> - Todos los derechos reservados</small>
+                <small>&copy; 2023 <b>GatoSM</b> - Todos los derechos reservados <a href="https://soft-entremet-b4f0de.netlify.app" target="_blank">Sitio Web</a></small>
             </div>
         </footer>
     )

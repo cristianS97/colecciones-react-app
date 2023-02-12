@@ -243,6 +243,9 @@ footer {
         small {
             font-size: 15px;
         }
+        a {
+            color: $form-link;
+        }
     }
 }
 @media screen and (max-width: 768px) {
