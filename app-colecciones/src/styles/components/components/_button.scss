@@ -184,5 +184,7 @@
 @media screen and (max-width: 426px) {
     .btns {
         flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 }
