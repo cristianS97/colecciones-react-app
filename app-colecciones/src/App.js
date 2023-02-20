@@ -3,10 +3,13 @@ import './styles/styles.scss';
 import { RouterProvider } from "react-router-dom";
 // Mis importaciones
 import { router } from './router/routes';
+import AuthState from './reducer/state/authState';
 
 function App() {
   return (
-    <RouterProvider router={router} />
+    <AuthState>
+      <RouterProvider router={router} />
+    </AuthState>
   );
 }
 
