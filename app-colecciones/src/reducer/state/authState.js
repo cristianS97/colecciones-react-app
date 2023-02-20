@@ -10,16 +10,17 @@ const AuthState = (props) => {
 
     const [state, dispatch] = useReducer(authReducer, initialState);
 
-    const initiLogin = (userData) => {
+    const initLogin = (userData) => {
         dispatch({
             type: types.login,
             payload: userData
-        })
+        });
     }
 
     return (
         <authContext.Provider value={{
-            initiLogin
+            state,
+            initLogin
         }}>
             {props.children}
         </authContext.Provider>

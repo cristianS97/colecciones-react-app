@@ -1,9 +1,19 @@
 // React
-import React, { useState } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 // React router dom
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+// mis importaciones
+import { authContext } from '../../reducer/context/authContext';
 
 export const LoginPage = () => {
+    const loginState = useContext(authContext);
+    const navigate = useNavigate();
+
+    const [loginInfo, setLoginInfo] = useState({
+        email: '',
+        password: ''
+    });
+
     const [toggleForm, setToggleForm] = useState('');
     const [loginPassword, setLoginPassword] = useState('password');
     const [registerPassword, setregisterPassword] = useState('password');
@@ -17,6 +27,26 @@ export const LoginPage = () => {
         e.preventDefault();
         setToggleForm(toggleForm === '' ? 'active' : '');
     }
+
+    const handleLoggin = (e) => {
+        setLoginInfo({
+            ...loginInfo,
+            [e.target.name]: e.target.value
+        });
+    }
+
+    const startLogin = (e) => {
+        e.preventDefault();
+        if(loginInfo.email.trim() !== '' && loginInfo.password.trim() !== '') {
+            loginState.initLogin({...loginInfo, name:'pepe'});
+        }
+    }
+
+    useEffect(() => {
+        if(loginState.state.logged) {
+            navigate('/');
+        }
+    }, [loginState]);
 
     return (
         <section className={`loginForm ${toggleForm}`}>
@@ -33,14 +63,26 @@ export const LoginPage = () => {
                 </div>
                 <div className={`formBox ${toggleForm}`}>
                     <div className="form signin">
-                        <form action="">
+                        <form action="" onSubmit={startLogin}>
                             <h3>Login</h3>
                             <div className="inputBox">
-                                <input type="email" required />
+                                <input
+                                    type="email"
+                                    name='email'
+                                    value={loginInfo.email}
+                                    onChange={handleLoggin}
+                                    required
+                                />
                                 <i>Correo</i>
                             </div>
                             <div className="inputBox">
-                                <input type={loginPassword} name="" id="" required />
+                                <input
+                                    type={loginPassword}
+                                    name='password'
+                                    value={loginInfo.password}
+                                    onChange={handleLoggin}
+                                    required
+                                />
                                 <i>Contraseña</i>
                                 <span
                                     onClick={changeLoginPasswordType}
