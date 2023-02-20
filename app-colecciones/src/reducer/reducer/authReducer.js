@@ -1,10 +1,12 @@
 import { types } from "../types/types";
 
-export default (state, action) => {
+const initialState = {
+    logged: false
+};
+
+export default (state=initialState, action) => {
     switch(action.type) {
         case types.login:
-            console.log(state);
-            console.log(action);
             return {
                 ...state,
                 logged: true,
@@ -13,6 +15,8 @@ export default (state, action) => {
                     name: action.payload.name
                 }
             }
+        case types.logout:
+            return initialState;
         default:
             return state;
     }

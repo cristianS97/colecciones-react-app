@@ -1,10 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 // react router
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link, useNavigate } from "react-router-dom";
+// Mis importaciones
+import { authContext } from '../reducer/context/authContext';
 
 export const Menu = () => {
+    const loginContext = useContext(authContext);
+    const { initLogout } = loginContext;
+    const navigate = useNavigate();
     const [lineClass, setLineClass] = useState(false);
-    const [hamburgerActive, setHamburgerActive] = useState('')
+    const [hamburgerActive, setHamburgerActive] = useState('');
+
+    useEffect(() => {
+        if(!loginContext.state.logged) {
+            navigate('/login');
+        }
+    }, [loginContext, navigate])
 
     const handleHamburgerClick = () => {
         setLineClass(!lineClass);
@@ -18,6 +29,11 @@ export const Menu = () => {
     const handleLinkClick = () => {
         setLineClass(false);
         setHamburgerActive('');
+    }
+
+    const handleLogout = (e) => {
+        handleLinkClick();
+        initLogout();
     }
 
     return (
@@ -37,7 +53,7 @@ export const Menu = () => {
                         <NavLink onClick={handleLinkClick} className={({ isActive }) => isActive ? 'active' : ''} to="/collections">Collections</NavLink>
                     </li>
                     <li>
-                        <NavLink onClick={handleLinkClick} to="/login">Logout</NavLink>
+                        <NavLink onClick={handleLogout} to="/login">Logout</NavLink>
                     </li>
                 </ul>
             </nav>

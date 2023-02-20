@@ -17,10 +17,15 @@ const AuthState = (props) => {
         });
     }
 
+    const initLogout = () => {
+        dispatch({type: types.logout});
+    }
+
     return (
         <authContext.Provider value={{
             state,
-            initLogin
+            initLogin,
+            initLogout
         }}>
             {props.children}
         </authContext.Provider>

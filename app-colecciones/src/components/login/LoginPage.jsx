@@ -6,7 +6,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import { authContext } from '../../reducer/context/authContext';
 
 export const LoginPage = () => {
-    const loginState = useContext(authContext);
+    const loginContext = useContext(authContext);
+    const { initLogin, state } = loginContext;
     const navigate = useNavigate();
 
     const [loginInfo, setLoginInfo] = useState({
@@ -38,15 +39,15 @@ export const LoginPage = () => {
     const startLogin = (e) => {
         e.preventDefault();
         if(loginInfo.email.trim() !== '' && loginInfo.password.trim() !== '') {
-            loginState.initLogin({...loginInfo, name:'pepe'});
+            initLogin({...loginInfo, name:'pepe'});
         }
     }
 
     useEffect(() => {
-        if(loginState.state.logged) {
+        if(state.logged) {
             navigate('/');
         }
-    }, [loginState]);
+    }, [loginContext]);
 
     return (
         <section className={`loginForm ${toggleForm}`}>
