@@ -15,14 +15,14 @@ export const LoginForm = () => {
     const [loginPassword, setLoginPassword] = useState('password');
     const changeLoginPasswordType = () => setLoginPassword(loginPassword === 'password' ? 'text' : 'password');
 
-    const handleLoggin = (e) => {
+    const handleInputChange = (e) => {
         setLoginInfo({
             ...loginInfo,
             [e.target.name]: e.target.value
         });
     }
 
-    const startLogin = (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
         if(loginInfo.email.trim() !== '' && loginInfo.password.trim() !== '') {
             initLogin({...loginInfo, name:'pepe'});
@@ -30,14 +30,14 @@ export const LoginForm = () => {
     }
 
     return (
-        <form action="" onSubmit={startLogin}>
+        <form onSubmit={handleSubmit}>
             <h3>Login</h3>
             <div className="inputBox">
                 <input
                     type="email"
                     name='email'
                     value={loginInfo.email}
-                    onChange={handleLoggin}
+                    onChange={handleInputChange}
                     required
                 />
                 <i>Correo</i>
@@ -47,7 +47,7 @@ export const LoginForm = () => {
                     type={loginPassword}
                     name='password'
                     value={loginInfo.password}
-                    onChange={handleLoggin}
+                    onChange={handleInputChange}
                     required
                 />
                 <i>Contraseña</i>
